@@ -4,14 +4,12 @@ error_reporting(0);
  * *********************
  * Language identification tool
  * 
- * ljacqu, May 2010 - Jan 2011
+ * ljacqu, 2010-2011, 2016
  * *********************
 */
 
 #################
-# Demo
 # Demo feature (at the top because we use cookies)
-# -> Nothing may be outputted before setting cookies!
 #################
 $do_demo = 0;
 if(isset($_GET['demo']) || isset($_POST['demo'])){
@@ -49,32 +47,6 @@ if(isset($_GET['demo']) || isset($_POST['demo'])){
 		}
 	}
 }
-
-#################
-# Beispielstext f�r Maturarbeitspr�sentation
-#################
-if(isset($_GET['p']) && trim($_GET['p']) == ''){
-	$_GET['p'] = 1;
-	$do_demo = true;
-
-	$text = 'Brosandi
-Hendumst &#237; hringi
-Allur heimurinn &#243;sk&#253;r
-Nema &#254;&#250; stendur';
-}
-elseif($_GET['p'] == 2){
-	$text = 'Efterf&#248;lgerne arbejdede han som musikfotograf og skrev til tidsskrifter.';
-	$do_demo = true;
-}
-elseif($_GET['p'] == 3){
-	$text = '&#4327;&#4309;&#4308;&#4314;&#4304; &#4304;&#4307;&#4304;&#4315;&#4312;&#4304;&#4316;&#4312; &#4312;&#4305;&#4304;&#4307;&#4308;&#4305;&#4304; &#4311;&#4304;&#4309;&#4312;&#4321;&#4323;&#4324;&#4304;&#4314;&#4312; &#4307;&#4304; &#4311;&#4304;&#4316;&#4304;&#4321;&#4332;&#4317;&#4320;&#4312; &#4311;&#4304;&#4309;&#4312;&#4321;&#4312; &#4326;&#4312;&#4320;&#4321;&#4308;&#4305;&#4312;&#4311;&#4304; &#4307;&#4304; &#4323;&#4324;&#4314;&#4308;&#4305;&#4308;&#4305;&#4312;&#4311;. &#4315;&#4304;&#4311; &#4315;&#4312;&#4316;&#4312;&#4333;&#4308;&#4305;&#4323;&#4314;&#4312; &#4304;&#4325;&#4309;&#4311; &#4306;&#4317;&#4316;&#4308;&#4305;&#4304; &#4307;&#4304; &#4321;&#4312;&#4316;&#4307;&#4312;&#4321;&#4312; &#4307;&#4304; &#4308;&#4320;&#4311;&#4315;&#4304;&#4316;&#4308;&#4311;&#4312;&#4321; &#4315;&#4312;&#4315;&#4304;&#4320;&#4311; &#4323;&#4316;&#4307;&#4304; &#4312;&#4325;&#4330;&#4308;&#4317;&#4307;&#4316;&#4308;&#4316; &#4331;&#4315;&#4317;&#4305;&#4312;&#4321; &#4321;&#4323;&#4314;&#4312;&#4321;&#4313;&#4309;&#4308;&#4311;&#4308;&#4305;&#4312;&#4311;.';	
-	$do_demo = true;
-}
-elseif($_GET['p'] == 4){
-	$text = 'Ahozko literaturak aipamen berezia behar du. Eukararen idatzizko garapen mugatua dela eta, ahozko literaturaren agerpenek indar berezia izan dute. Horrela, atsotitzak, baladak eta kopla zaharrekin batera, besteak beste, berezibizko munta du bertsolaritzak.';
-	$do_demo = true;
-}
-
 
 #################
 # Startup:
@@ -922,11 +894,7 @@ echo "\r\r<h2>".$lang['enter_text'].'</h2>
    </tr>
   </table>
  </form>
- <div id="footer"';
-if(isset($_GET['p'])){
-	echo ' onclick="document.cookie=\'details=0\'; document.cookie=\'box1=0\'; document.cookie=\'box2=0\'; document.location=\'?p='.++$_GET['p'].'\'"';
-}
-echo '>
+ <div id="footer">
   <p class="time">'.$lang['time'].' '.timer_eval(); ?> s</p><br />
   <p class="info"> <a href="?info">Informationen</a></p>
  </div>
